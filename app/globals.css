@@ -1,26 +1,215 @@
 @import "tailwindcss";
 
+/* ─── Base theme ──────────────────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-void:      #08090c;
+  --bg-surface:   #0f1015;
+  --bg-elevated:  #141519;
+  --border-dim:   rgba(255, 255, 255, 0.07);
+  --border-glow:  rgba(99, 102, 241, 0.25);
+  --text-bright:  #f8fafc;
+  --text-muted:   #94a3b8;
+  --text-dim:     #475569;
+  --accent-indigo:#6366f1;
+  --accent-cyan:  #22d3ee;
+  --accent-wa:    #25d366;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-void);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-void);
+  color: var(--text-bright);
+  font-family: var(--font-geist-sans, system-ui, sans-serif);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ─── Custom scrollbar ───────────────────────────────────────────────────── */
+::-webkit-scrollbar            { width: 3px; }
+::-webkit-scrollbar-track      { background: var(--bg-void); }
+::-webkit-scrollbar-thumb      { background: #1e2030; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover{ background: #2d3055; }
+
+/* ─── Keyframes ──────────────────────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-12px) rotate(0.5deg); }
+}
+
+@keyframes shimmer-text {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(1);    opacity: 0.8; }
+  60%  { transform: scale(1.18); opacity: 0;   }
+  100% { transform: scale(1.18); opacity: 0;   }
+}
+
+@keyframes pulse-ring-2 {
+  0%   { transform: scale(1);    opacity: 0.4; }
+  60%  { transform: scale(1.32); opacity: 0;   }
+  100% { transform: scale(1.32); opacity: 0;   }
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes scan-line {
+  0%   { top: -4px; opacity: 0.6; }
+  80%  { opacity: 0.2; }
+  100% { top: 100%;  opacity: 0;   }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes wa-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 20px  rgba(37, 211, 102, 0.25),
+      0 0 40px  rgba(37, 211, 102, 0.12),
+      0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 35px  rgba(37, 211, 102, 0.45),
+      0 0 70px  rgba(37, 211, 102, 0.2),
+      0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* ─── Utility classes ────────────────────────────────────────────────────── */
+.animate-float {
+  animation: float 7s ease-in-out infinite;
+}
+
+.animate-blink {
+  animation: blink-cursor 1.1s step-end infinite;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #f1f5f9 0%, #a5b4fc 35%, #22d3ee 70%, #f1f5f9 100%);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-text 5s linear infinite;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.028);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+}
+
+.glass-card-elevated {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.pillar-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.pillar-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(99, 102, 241, 0.28);
+  box-shadow:
+    0 32px 64px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(99, 102, 241, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.pillar-card-featured {
+  background: linear-gradient(135deg, rgba(99,102,241,0.08) 0%, rgba(34,211,238,0.04) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.pillar-card-featured:hover {
+  transform: translateY(-6px);
+  border-color: rgba(99, 102, 241, 0.45);
+  box-shadow:
+    0 32px 64px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(99, 102, 241, 0.12),
+    0 0 0 1px rgba(99, 102, 241, 0.2);
+}
+
+/* WhatsApp button with continuous glow */
+.wa-btn {
+  background: linear-gradient(135deg, #25d366 0%, #20bf5a 100%);
+  animation: wa-glow 2.8s ease-in-out infinite;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.wa-btn:hover {
+  transform: scale(1.04);
+  filter: brightness(1.08);
+}
+
+/* Outer pulse rings around WA button */
+.wa-pulse-ring-1 {
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+
+.wa-pulse-ring-2 {
+  animation: pulse-ring-2 2.4s ease-out 0.6s infinite;
+}
+
+/* Brand logo hover */
+.brand-logo-item {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  opacity: 0.55;
+}
+
+.brand-logo-item:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* Navbar blur */
+.navbar-glass {
+  background: rgba(8, 9, 12, 0.82);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Scan line on mockup */
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(99, 102, 241, 0.5) 30%,
+    rgba(34, 211, 238, 0.5) 70%,
+    transparent 100%
+  );
+  animation: scan-line 6s linear infinite;
+  pointer-events: none;
 }
