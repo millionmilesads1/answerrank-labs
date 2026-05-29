@@ -46,7 +46,7 @@ export default function RootLayout({
     <html lang="en" className={`${geist.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <body
         className="antialiased min-h-screen overflow-x-hidden"
-        style={{ background: '#060608', color: 'rgba(235,235,242,0.94)' }}
+        style={{ background: '#ffffff', color: 'rgba(10,10,15,0.9)' }}
       >
         <Navbar />
         <main>{children}</main>

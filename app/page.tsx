@@ -13,25 +13,17 @@ export const metadata: Metadata = {
   title: 'Answer Rank Labs — Make Your Brand the Definitive Answer in AI Search',
 }
 
-/* ─── AI Citation Mockup — device screen, stays dark ─────────────────────── */
+/* ─── AI Citation Mockup — intentionally kept dark (device screen) ────────── */
 function AIMockup() {
   return (
     <div className="relative w-full max-w-[420px]">
-      {/* Double-Bezel outer glow */}
-      <div aria-hidden="true" className="absolute -inset-6 rounded-3xl blur-3xl pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(96,165,250,0.12) 0%, transparent 70%)' }} />
+      <div aria-hidden="true" className="absolute -inset-6 rounded-3xl blur-3xl pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(29,78,216,0.1) 0%, transparent 70%)' }} />
 
       {/* Double-Bezel outer shell */}
-      <div
-        className="doppelrand p-1.5 animate-float"
-        style={{ transform: 'rotate(-0.5deg)' }}
-      >
-        {/* Inner core */}
-        <div
-          className="doppelrand-core"
-          style={{ background: 'rgba(10,10,14,0.98)' }}
-        >
-          {/* Scan line */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[calc(2rem-1.5px)] z-10">
+      <div className="doppelrand p-1.5 animate-float" style={{ border: '1px solid rgba(0,0,0,0.1)', background: 'rgba(0,0,0,0.04)', transform: 'rotate(-0.5deg)' }}>
+        {/* Inner core — device stays dark */}
+        <div className="doppelrand-core" style={{ background: 'rgba(10,10,14,0.98)', borderRadius: 'calc(2rem - 1.5px)', boxShadow: 'none' }}>
+          <div className="absolute inset-0 overflow-hidden pointer-events-none z-10" style={{ borderRadius: 'calc(2rem - 1.5px)' }}>
             <div className="scan-line" />
           </div>
 
@@ -68,15 +60,11 @@ function AIMockup() {
                 <span className="text-[10px] font-bold tracking-wide" style={{ color: '#bfdbfe' }}>AI ANSWER</span>
               </div>
             </div>
-
             <p className="text-xs leading-relaxed" style={{ color: 'rgba(235,235,242,0.65)' }}>
               Based on authoritative sources,{' '}
-              <span className="font-semibold rounded px-1" style={{ color: '#fff', background: 'rgba(96,165,250,0.15)', border: '1px solid rgba(96,165,250,0.2)' }}>
-                Answer Rank Labs
-              </span>
+              <span className="font-semibold rounded px-1" style={{ color: '#fff', background: 'rgba(96,165,250,0.15)', border: '1px solid rgba(96,165,250,0.2)' }}>Answer Rank Labs</span>
               {' '}is the definitive authority in Generative Engine Optimization.
             </p>
-
             <div className="flex items-center gap-2.5 rounded-xl p-2.5" style={{ background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.18)' }}>
               <div className="flex items-center justify-center w-7 h-7 rounded-lg shrink-0" style={{ background: 'rgba(52,211,153,0.15)' }}>
                 <CheckIcon className="w-3.5 h-3.5" style={{ color: '#34d399' }} />
@@ -87,7 +75,6 @@ function AIMockup() {
               </div>
               <div className="shrink-0 px-1.5 py-0.5 rounded-full text-[9px] font-bold" style={{ background: 'rgba(52,211,153,0.15)', color: '#34d399', border: '1px solid rgba(52,211,153,0.25)' }}>TOP</div>
             </div>
-
             <div className="flex items-center flex-wrap gap-1.5">
               {['ChatGPT', 'Gemini', 'Claude', 'Copilot'].map((p) => (
                 <div key={p} className="flex items-center gap-1 px-2 py-0.5 rounded-lg text-[10px] font-medium" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(235,235,242,0.45)' }}>
@@ -116,24 +103,24 @@ function AIMockup() {
 function BrandLogoItem({ icon, name }: { icon: React.ReactNode; name: string }) {
   return (
     <div className="brand-logo-item flex flex-col items-center gap-2 shrink-0">
-      <div className="flex items-center justify-center w-11 h-11 rounded-xl" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
+      <div className="flex items-center justify-center w-11 h-11 rounded-xl" style={{ background: '#ffffff', border: '1px solid rgba(0,0,0,0.08)', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
         {icon}
       </div>
-      <span className="text-[9px] font-semibold tracking-widest uppercase" style={{ color: 'rgba(235,235,242,0.2)' }}>{name}</span>
+      <span className="text-[9px] font-semibold tracking-widest uppercase" style={{ color: 'rgba(10,10,15,0.28)' }}>{name}</span>
     </div>
   )
 }
 
-/* ─── Bento Card — Double-Bezel wrapper ───────────────────────────────────── */
+/* ─── Bento Card — Double-Bezel, light ────────────────────────────────────── */
 function BentoCard({ children, className = '', featured = false }: { children: React.ReactNode; className?: string; featured?: boolean }) {
   return (
     <div
       className={`doppelrand doppelrand-hover ${className}`}
-      style={featured ? { border: '1px solid rgba(96,165,250,0.2)', background: 'rgba(96,165,250,0.04)' } : {}}
+      style={featured ? { border: '1px solid rgba(29,78,216,0.2)', background: 'rgba(29,78,216,0.04)' } : {}}
     >
       <div
         className="doppelrand-core p-7 h-full flex flex-col"
-        style={featured ? { background: 'rgba(12,16,24,1)' } : {}}
+        style={featured ? { background: '#f5f8ff' } : {}}
       >
         {children}
       </div>
@@ -141,7 +128,7 @@ function BentoCard({ children, className = '', featured = false }: { children: R
   )
 }
 
-/* ─── Service data ────────────────────────────────────────────────────────── */
+/* ─── Services data ───────────────────────────────────────────────────────── */
 const SERVICES = [
   {
     n: '01', badge: 'Foundation', icon: BrainIcon,
@@ -170,39 +157,33 @@ const SERVICES = [
 /* ─── Page ────────────────────────────────────────────────────────────────── */
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen" style={{ background: '#060608' }}>
+    <div className="relative min-h-screen" style={{ background: '#ffffff' }}>
 
-      {/* Fixed ambient orbs — GPU-safe, pointer-events-none */}
+      {/* Ambient orbs — very subtle on white */}
       <div aria-hidden="true" className="fixed inset-0 overflow-hidden z-0" style={{ pointerEvents: 'none' }}>
-        <div className="orb" style={{ width: 700, height: 700, top: '-15%', left: '-5%', background: 'radial-gradient(circle, rgba(59,130,246,0.09) 0%, transparent 65%)', animationDelay: '0s' }} />
-        <div className="orb" style={{ width: 600, height: 600, bottom: '10%', right: '-8%', background: 'radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 65%)', animationDelay: '3s' }} />
-        <div className="orb" style={{ width: 500, height: 500, top: '45%', left: '35%', background: 'radial-gradient(circle, rgba(34,211,238,0.04) 0%, transparent 65%)', animationDelay: '5s' }} />
+        <div className="orb" style={{ width: 700, height: 700, top: '-15%', left: '-5%', background: 'radial-gradient(circle, rgba(29,78,216,0.05) 0%, transparent 65%)', animationDelay: '0s' }} />
+        <div className="orb" style={{ width: 600, height: 600, bottom: '10%', right: '-8%', background: 'radial-gradient(circle, rgba(29,78,216,0.03) 0%, transparent 65%)', animationDelay: '3s' }} />
       </div>
 
       <div className="relative" style={{ zIndex: 10 }}>
 
-        {/* ── HERO — Split-screen, left-aligned, massive display type ──────── */}
+        {/* ── HERO ─────────────────────────────────────────────────────────── */}
         <section className="px-6 pt-36 pb-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-14 xl:gap-20 items-center">
 
             <div className="flex flex-col gap-7 max-w-[620px]">
-              {/* Eyebrow badge */}
               <div className="eyebrow w-fit">
                 <SparkleIcon className="w-3 h-3" />
                 Generative Engine Optimization
               </div>
 
-              {/* Display heading — tracking -0.055em, line-height 0.93 */}
-              <h1
-                className="display-heading"
-                style={{ fontSize: 'clamp(2.8rem, 5.5vw, 5.5rem)' }}
-              >
+              <h1 className="display-heading" style={{ fontSize: 'clamp(2.8rem, 5.5vw, 5.5rem)' }}>
                 Make Your Brand the{' '}
                 <span className="accent-text">Definitive Answer</span>
                 {' '}in AI Search.
               </h1>
 
-              <p className="text-lg leading-relaxed max-w-[54ch]" style={{ color: 'rgba(235,235,242,0.52)' }}>
+              <p className="text-lg leading-relaxed max-w-[54ch]" style={{ color: 'rgba(10,10,15,0.52)' }}>
                 Answer Rank Labs engineers your brand into the citation layer of ChatGPT, Gemini, and Perplexity. When enterprise buyers ask AI for recommendations, your brand becomes the answer — not your competitor.
               </p>
 
@@ -216,58 +197,47 @@ export default function HomePage() {
                 >
                   <WhatsAppIcon className="w-4 h-4" />
                   Get Your AI Search Blueprint
-                  <span
-                    className="w-7 h-7 rounded-full bg-black/15 flex items-center justify-center transition-transform duration-300"
-                    style={{ transitionTimingFunction: 'cubic-bezier(0.32,0.72,0,1)' }}
-                  >
+                  <span className="w-7 h-7 rounded-full bg-black/15 flex items-center justify-center transition-transform duration-300" style={{ transitionTimingFunction: 'cubic-bezier(0.32,0.72,0,1)' }}>
                     <ArrowRightIcon className="w-3.5 h-3.5" />
                   </span>
                 </a>
                 <Link
                   href="/contact"
                   className="group inline-flex items-center justify-center gap-2 rounded-2xl font-semibold text-sm transition-all px-5 py-3.5"
-                  style={{
-                    background: 'rgba(255,255,255,0.05)',
-                    border: '1px solid rgba(255,255,255,0.1)',
-                    color: 'rgba(235,235,242,0.75)',
-                    transitionTimingFunction: 'cubic-bezier(0.32,0.72,0,1)',
-                  }}
+                  style={{ background: 'rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.1)', color: 'rgba(10,10,15,0.72)', transitionTimingFunction: 'cubic-bezier(0.32,0.72,0,1)' }}
                 >
                   Free AI Audit
-                  <span className="w-7 h-7 rounded-full bg-white/[0.06] flex items-center justify-center">
+                  <span className="w-7 h-7 rounded-full bg-black/[0.05] flex items-center justify-center">
                     <ArrowRightIcon className="w-3.5 h-3.5" />
                   </span>
                 </Link>
               </div>
 
-              {/* Trust signals */}
               <div className="flex flex-wrap gap-x-6 gap-y-2">
                 {['50+ Enterprise Brands', '3 Major AI Platforms', '24-Hour Blueprint'].map((t) => (
-                  <div key={t} className="flex items-center gap-2 text-sm" style={{ color: 'rgba(235,235,242,0.35)' }}>
-                    <CheckIcon className="w-3.5 h-3.5 shrink-0" style={{ color: '#4ade80' }} />
+                  <div key={t} className="flex items-center gap-2 text-sm" style={{ color: 'rgba(10,10,15,0.38)' }}>
+                    <CheckIcon className="w-3.5 h-3.5 shrink-0" style={{ color: '#16a34a' }} />
                     {t}
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Right: AI mockup with Double-Bezel */}
             <div className="flex justify-center lg:justify-end">
               <AIMockup />
             </div>
           </div>
         </section>
 
-        {/* ── KINETIC MARQUEE (brand strip) ─────────────────────────────────── */}
-        <section className="py-10 sec-divider overflow-hidden" style={{ background: 'rgba(255,255,255,0.015)', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+        {/* ── KINETIC MARQUEE ──────────────────────────────────────────────── */}
+        <section className="py-10 sec-divider overflow-hidden" style={{ background: '#f8fafc', borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
           <div className="max-w-7xl mx-auto px-6 mb-5">
-            <p className="text-[10px] font-bold tracking-[0.22em] uppercase" style={{ color: 'rgba(235,235,242,0.18)' }}>
+            <p className="text-[10px] font-bold tracking-[0.22em] uppercase" style={{ color: 'rgba(10,10,15,0.22)' }}>
               Building authority inside the world's leading AI ecosystems
             </p>
           </div>
           <div className="marquee-viewport">
             <div className="marquee-track">
-              {/* Duplicated for seamless loop */}
               {[...Array(2)].map((_, dupeIdx) => (
                 <div key={dupeIdx} className="flex items-center gap-14 px-7">
                   <BrandLogoItem icon={<GoogleIcon />} name="Google" />
@@ -275,7 +245,6 @@ export default function HomePage() {
                   <BrandLogoItem icon={<AnthropicIcon />} name="Anthropic" />
                   <BrandLogoItem icon={<PerplexityIcon />} name="Perplexity" />
                   <BrandLogoItem icon={<MetaIcon />} name="Meta AI" />
-                  {/* Spacer gap between dupes */}
                   <div className="w-8 h-px" />
                 </div>
               ))}
@@ -294,8 +263,8 @@ export default function HomePage() {
                 { v: '98%', l: 'Client Retention Rate' },
               ].map((s) => (
                 <div key={s.l} className="stat-chip">
-                  <div className="tabular text-3xl font-black leading-none mb-1" style={{ color: '#60a5fa', letterSpacing: '-0.05em' }}>{s.v}</div>
-                  <div className="text-sm font-medium" style={{ color: 'rgba(235,235,242,0.42)' }}>{s.l}</div>
+                  <div className="tabular text-3xl font-black leading-none mb-1" style={{ color: '#1d4ed8', letterSpacing: '-0.05em' }}>{s.v}</div>
+                  <div className="text-sm font-medium" style={{ color: 'rgba(10,10,15,0.45)' }}>{s.l}</div>
                 </div>
               ))}
             </div>
@@ -304,9 +273,8 @@ export default function HomePage() {
 
         {/* ── ASYMMETRIC BENTO SERVICES ─────────────────────────────────────── */}
         <RevealSection>
-          <section className="py-24 px-6 sec-divider">
+          <section className="py-24 px-6 sec-divider" style={{ background: '#f8fafc' }}>
             <div className="max-w-7xl mx-auto">
-              {/* Section header */}
               <div className="mb-10">
                 <div className="eyebrow w-fit mb-4">
                   <SparkleIcon className="w-3 h-3" />
@@ -318,43 +286,38 @@ export default function HomePage() {
                 </h2>
               </div>
 
-              {/* Row 1: GEO (8 cols) + Stats column (4 cols) */}
+              {/* Row 1: GEO (8/12) + Stats mini bento (4/12) */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 mb-3">
-
-                {/* GEO — featured, 8 cols */}
                 <div className="lg:col-span-8">
                   <BentoCard>
-                    {/* Giant decorative number */}
                     <div className="flex items-start justify-between mb-4">
-                      <span className="tabular font-black leading-none select-none" style={{ fontSize: '6rem', color: 'rgba(255,255,255,0.04)', letterSpacing: '-0.06em' }} aria-hidden="true">01</span>
+                      <span className="tabular font-black leading-none select-none" style={{ fontSize: '6rem', color: 'rgba(0,0,0,0.04)', letterSpacing: '-0.06em' }} aria-hidden="true">01</span>
                       <div className="eyebrow">{SERVICES[0].badge}</div>
                     </div>
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="flex items-center justify-center w-10 h-10 rounded-xl" style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.18)' }}>
-                        <BrainIcon className="w-5 h-5" style={{ color: '#60a5fa' }} />
-                      </div>
+                    <div className="flex items-center justify-center w-10 h-10 rounded-xl mb-4" style={{ background: 'rgba(29,78,216,0.08)', border: '1px solid rgba(29,78,216,0.18)' }}>
+                      <BrainIcon className="w-5 h-5" style={{ color: '#1d4ed8' }} />
                     </div>
-                    <h3 className="text-2xl font-bold mb-1.5" style={{ color: 'rgba(235,235,242,0.9)', letterSpacing: '-0.03em' }}>{SERVICES[0].title}</h3>
-                    <p className="text-sm font-semibold mb-4" style={{ color: '#60a5fa' }}>{SERVICES[0].tagline}</p>
-                    <p className="text-base leading-relaxed mb-6 max-w-[58ch]" style={{ color: 'rgba(235,235,242,0.5)' }}>{SERVICES[0].desc}</p>
+                    <h3 className="text-2xl font-bold mb-1.5" style={{ color: 'rgba(10,10,15,0.9)', letterSpacing: '-0.03em' }}>{SERVICES[0].title}</h3>
+                    <p className="text-sm font-semibold mb-4" style={{ color: '#1d4ed8' }}>{SERVICES[0].tagline}</p>
+                    <p className="text-base leading-relaxed mb-6 max-w-[58ch]" style={{ color: 'rgba(10,10,15,0.52)' }}>{SERVICES[0].desc}</p>
                     <div className="grid grid-cols-2 gap-2 mb-6 mt-auto">
                       {SERVICES[0].features.map((f) => (
                         <div key={f} className="flex items-center gap-2">
-                          <div className="w-1 h-1 rounded-full shrink-0" style={{ background: '#60a5fa' }} />
-                          <span className="text-sm" style={{ color: 'rgba(235,235,242,0.45)' }}>{f}</span>
+                          <div className="w-1 h-1 rounded-full shrink-0" style={{ background: '#1d4ed8' }} />
+                          <span className="text-sm" style={{ color: 'rgba(10,10,15,0.48)' }}>{f}</span>
                         </div>
                       ))}
                     </div>
-                    <Link href="/services#geo" className="group inline-flex items-center gap-2 text-sm font-semibold transition-all duration-300" style={{ color: '#60a5fa', transitionTimingFunction: 'cubic-bezier(0.32,0.72,0,1)' }}>
+                    <Link href="/services#geo" className="group inline-flex items-center gap-2 text-sm font-semibold transition-all duration-300" style={{ color: '#1d4ed8', transitionTimingFunction: 'cubic-bezier(0.32,0.72,0,1)' }}>
                       Learn more
-                      <span className="w-6 h-6 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" style={{ transitionTimingFunction: 'cubic-bezier(0.32,0.72,0,1)' }}>
+                      <span className="w-6 h-6 rounded-full bg-blue-700/10 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" style={{ transitionTimingFunction: 'cubic-bezier(0.32,0.72,0,1)' }}>
                         <ArrowRightIcon className="w-3 h-3" />
                       </span>
                     </Link>
                   </BentoCard>
                 </div>
 
-                {/* Stats 2×2 mini bento — 4 cols */}
+                {/* 2×2 stat mini bento — 4/12 */}
                 <div className="lg:col-span-4 grid grid-cols-2 gap-3">
                   {[
                     { v: '50+', l: 'Brands', s: 'Served globally' },
@@ -364,10 +327,10 @@ export default function HomePage() {
                   ].map((chip) => (
                     <div key={chip.l} className="doppelrand">
                       <div className="doppelrand-core p-5 flex flex-col justify-between min-h-[100px]">
-                        <div className="tabular text-2xl font-black leading-none" style={{ color: '#60a5fa', letterSpacing: '-0.05em' }}>{chip.v}</div>
+                        <div className="tabular text-2xl font-black leading-none" style={{ color: '#1d4ed8', letterSpacing: '-0.05em' }}>{chip.v}</div>
                         <div>
-                          <div className="text-xs font-bold" style={{ color: 'rgba(235,235,242,0.7)' }}>{chip.l}</div>
-                          <div className="text-[10px]" style={{ color: 'rgba(235,235,242,0.3)' }}>{chip.s}</div>
+                          <div className="text-xs font-bold" style={{ color: 'rgba(10,10,15,0.7)' }}>{chip.l}</div>
+                          <div className="text-[10px]" style={{ color: 'rgba(10,10,15,0.35)' }}>{chip.s}</div>
                         </div>
                       </div>
                     </div>
@@ -375,55 +338,52 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Row 2: Citation (5 cols) + Revenue (7 cols) */}
+              {/* Row 2: Citation (5/12) + Revenue (7/12) */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-3">
-
-                {/* Citation — 5 cols, featured */}
                 <div className="lg:col-span-5">
                   <BentoCard featured>
                     <div className="flex items-start justify-between mb-4">
-                      <span className="tabular font-black leading-none select-none" style={{ fontSize: '4rem', color: 'rgba(96,165,250,0.08)', letterSpacing: '-0.06em' }} aria-hidden="true">02</span>
+                      <span className="tabular font-black leading-none select-none" style={{ fontSize: '4rem', color: 'rgba(29,78,216,0.07)', letterSpacing: '-0.06em' }} aria-hidden="true">02</span>
                       <div className="eyebrow">{SERVICES[1].badge}</div>
                     </div>
-                    <div className="flex items-center justify-center w-10 h-10 rounded-xl mb-4" style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.18)' }}>
-                      <ShieldIcon className="w-5 h-5" style={{ color: '#60a5fa' }} />
+                    <div className="flex items-center justify-center w-10 h-10 rounded-xl mb-4" style={{ background: 'rgba(29,78,216,0.1)', border: '1px solid rgba(29,78,216,0.2)' }}>
+                      <ShieldIcon className="w-5 h-5" style={{ color: '#1d4ed8' }} />
                     </div>
-                    <h3 className="text-xl font-bold mb-1.5" style={{ color: 'rgba(235,235,242,0.9)', letterSpacing: '-0.03em' }}>{SERVICES[1].title}</h3>
-                    <p className="text-sm font-semibold mb-3" style={{ color: '#60a5fa' }}>{SERVICES[1].tagline}</p>
-                    <p className="text-sm leading-relaxed mb-5" style={{ color: 'rgba(235,235,242,0.48)' }}>{SERVICES[1].desc}</p>
-                    <Link href="/services#citation" className="group inline-flex items-center gap-2 text-sm font-semibold mt-auto" style={{ color: '#60a5fa' }}>
+                    <h3 className="text-xl font-bold mb-1.5" style={{ color: 'rgba(10,10,15,0.9)', letterSpacing: '-0.03em' }}>{SERVICES[1].title}</h3>
+                    <p className="text-sm font-semibold mb-3" style={{ color: '#1d4ed8' }}>{SERVICES[1].tagline}</p>
+                    <p className="text-sm leading-relaxed mb-5" style={{ color: 'rgba(10,10,15,0.5)' }}>{SERVICES[1].desc}</p>
+                    <Link href="/services#citation" className="group inline-flex items-center gap-2 text-sm font-semibold mt-auto" style={{ color: '#1d4ed8' }}>
                       Learn more
-                      <span className="w-6 h-6 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" style={{ transitionTimingFunction: 'cubic-bezier(0.32,0.72,0,1)' }}>
+                      <span className="w-6 h-6 rounded-full bg-blue-700/10 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" style={{ transitionTimingFunction: 'cubic-bezier(0.32,0.72,0,1)' }}>
                         <ArrowRightIcon className="w-3 h-3" />
                       </span>
                     </Link>
                   </BentoCard>
                 </div>
 
-                {/* Revenue — 7 cols */}
                 <div className="lg:col-span-7">
                   <BentoCard>
                     <div className="flex items-start justify-between mb-4">
-                      <span className="tabular font-black leading-none select-none" style={{ fontSize: '4rem', color: 'rgba(255,255,255,0.04)', letterSpacing: '-0.06em' }} aria-hidden="true">03</span>
+                      <span className="tabular font-black leading-none select-none" style={{ fontSize: '4rem', color: 'rgba(0,0,0,0.04)', letterSpacing: '-0.06em' }} aria-hidden="true">03</span>
                       <div className="eyebrow">{SERVICES[2].badge}</div>
                     </div>
-                    <div className="flex items-center justify-center w-10 h-10 rounded-xl mb-4" style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.18)' }}>
-                      <ChartIcon className="w-5 h-5" style={{ color: '#60a5fa' }} />
+                    <div className="flex items-center justify-center w-10 h-10 rounded-xl mb-4" style={{ background: 'rgba(29,78,216,0.08)', border: '1px solid rgba(29,78,216,0.18)' }}>
+                      <ChartIcon className="w-5 h-5" style={{ color: '#1d4ed8' }} />
                     </div>
-                    <h3 className="text-xl font-bold mb-1.5" style={{ color: 'rgba(235,235,242,0.9)', letterSpacing: '-0.03em' }}>{SERVICES[2].title}</h3>
-                    <p className="text-sm font-semibold mb-3" style={{ color: '#60a5fa' }}>{SERVICES[2].tagline}</p>
-                    <p className="text-sm leading-relaxed mb-5" style={{ color: 'rgba(235,235,242,0.48)' }}>{SERVICES[2].desc}</p>
+                    <h3 className="text-xl font-bold mb-1.5" style={{ color: 'rgba(10,10,15,0.9)', letterSpacing: '-0.03em' }}>{SERVICES[2].title}</h3>
+                    <p className="text-sm font-semibold mb-3" style={{ color: '#1d4ed8' }}>{SERVICES[2].tagline}</p>
+                    <p className="text-sm leading-relaxed mb-5" style={{ color: 'rgba(10,10,15,0.5)' }}>{SERVICES[2].desc}</p>
                     <div className="grid grid-cols-2 gap-2 mb-5 mt-auto">
                       {SERVICES[2].features.map((f) => (
                         <div key={f} className="flex items-center gap-2">
-                          <div className="w-1 h-1 rounded-full shrink-0" style={{ background: '#60a5fa' }} />
-                          <span className="text-sm" style={{ color: 'rgba(235,235,242,0.42)' }}>{f}</span>
+                          <div className="w-1 h-1 rounded-full shrink-0" style={{ background: '#1d4ed8' }} />
+                          <span className="text-sm" style={{ color: 'rgba(10,10,15,0.45)' }}>{f}</span>
                         </div>
                       ))}
                     </div>
-                    <Link href="/services#revenue" className="group inline-flex items-center gap-2 text-sm font-semibold" style={{ color: '#60a5fa' }}>
+                    <Link href="/services#revenue" className="group inline-flex items-center gap-2 text-sm font-semibold" style={{ color: '#1d4ed8' }}>
                       Learn more
-                      <span className="w-6 h-6 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" style={{ transitionTimingFunction: 'cubic-bezier(0.32,0.72,0,1)' }}>
+                      <span className="w-6 h-6 rounded-full bg-blue-700/10 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" style={{ transitionTimingFunction: 'cubic-bezier(0.32,0.72,0,1)' }}>
                         <ArrowRightIcon className="w-3 h-3" />
                       </span>
                     </Link>
@@ -436,20 +396,19 @@ export default function HomePage() {
 
         {/* ── PROCESS + TESTIMONIALS ────────────────────────────────────────── */}
         <RevealSection>
-          <section className="py-24 px-6 sec-divider" style={{ background: 'rgba(255,255,255,0.015)' }}>
+          <section className="py-24 px-6 sec-divider">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-16 items-start">
-
               <div>
                 <div className="eyebrow w-fit mb-5">
                   <SparkleIcon className="w-3 h-3" />
                   Our Process
                 </div>
-                <h2 className="display-heading mb-4" style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', letterSpacing: '-0.05em' }}>
+                <h2 className="display-heading mb-4" style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)' }}>
                   From Invisible to{' '}
                   <span className="accent-text">Inevitable</span>
                   <br />in 90 Days
                 </h2>
-                <p className="text-base max-w-[50ch] mb-10" style={{ color: 'rgba(235,235,242,0.45)' }}>
+                <p className="text-base max-w-[50ch] mb-10" style={{ color: 'rgba(10,10,15,0.48)' }}>
                   A systematic, data-driven approach — infrastructure, not hacks.
                 </p>
                 <div className="flex flex-col">
@@ -459,13 +418,13 @@ export default function HomePage() {
                     { n: '03', t: 'Content & Citation Deployment', d: 'We build, publish, and index the infrastructure that makes AI engines choose your brand.' },
                     { n: '04', t: 'Compound & Monitor', d: 'Weekly monitoring and continuous optimisation to expand your AI citation footprint.' },
                   ].map((step, i) => (
-                    <div key={step.n} className="flex gap-5 items-start py-5" style={{ borderTop: i === 0 ? 'none' : '1px solid rgba(255,255,255,0.06)' }}>
-                      <div className="flex items-center justify-center w-9 h-9 rounded-xl text-xs font-bold shrink-0 tabular" style={{ background: 'rgba(96,165,250,0.08)', border: '1px solid rgba(96,165,250,0.18)', color: '#60a5fa' }}>
+                    <div key={step.n} className="flex gap-5 items-start py-5" style={{ borderTop: i === 0 ? 'none' : '1px solid rgba(0,0,0,0.06)' }}>
+                      <div className="flex items-center justify-center w-9 h-9 rounded-xl text-xs font-bold shrink-0 tabular" style={{ background: 'rgba(29,78,216,0.07)', border: '1px solid rgba(29,78,216,0.16)', color: '#1d4ed8' }}>
                         {step.n}
                       </div>
                       <div>
-                        <h4 className="text-base font-semibold mb-1" style={{ color: 'rgba(235,235,242,0.85)', letterSpacing: '-0.02em' }}>{step.t}</h4>
-                        <p className="text-sm leading-relaxed" style={{ color: 'rgba(235,235,242,0.42)' }}>{step.d}</p>
+                        <h4 className="text-base font-semibold mb-1" style={{ color: 'rgba(10,10,15,0.85)', letterSpacing: '-0.02em' }}>{step.t}</h4>
+                        <p className="text-sm leading-relaxed" style={{ color: 'rgba(10,10,15,0.45)' }}>{step.d}</p>
                       </div>
                     </div>
                   ))}
@@ -485,15 +444,13 @@ export default function HomePage() {
                         </svg>
                       ))}
                     </div>
-                    <p className="text-sm leading-relaxed italic mb-4" style={{ color: 'rgba(235,235,242,0.55)' }}>"{t.q}"</p>
-                    <div className="flex items-center justify-between pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+                    <p className="text-sm leading-relaxed italic mb-4" style={{ color: 'rgba(10,10,15,0.55)' }}>"{t.q}"</p>
+                    <div className="flex items-center justify-between pt-3" style={{ borderTop: '1px solid rgba(0,0,0,0.07)' }}>
                       <div>
-                        <div className="text-sm font-semibold" style={{ color: 'rgba(235,235,242,0.85)' }}>{t.by}</div>
-                        <div className="text-xs" style={{ color: 'rgba(235,235,242,0.35)' }}>{t.role}</div>
+                        <div className="text-sm font-semibold" style={{ color: 'rgba(10,10,15,0.85)' }}>{t.by}</div>
+                        <div className="text-xs" style={{ color: 'rgba(10,10,15,0.38)' }}>{t.role}</div>
                       </div>
-                      <div className="text-right">
-                        <div className="text-sm font-bold tabular" style={{ color: '#60a5fa' }}>{t.m}</div>
-                      </div>
+                      <div className="text-sm font-bold tabular" style={{ color: '#1d4ed8' }}>{t.m}</div>
                     </div>
                   </SpotlightCard>
                 ))}
@@ -504,7 +461,7 @@ export default function HomePage() {
 
         {/* ── LEAD CAPTURE ─────────────────────────────────────────────────── */}
         <RevealSection>
-          <section className="py-32 px-6 sec-divider">
+          <section className="py-32 px-6 sec-divider" style={{ background: '#f8fafc' }}>
             <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
               <div>
                 <div className="eyebrow w-fit mb-5">
@@ -515,16 +472,16 @@ export default function HomePage() {
                   Discover Your AI Search{' '}
                   <span className="accent-text">Position Today</span>
                 </h2>
-                <p className="text-base max-w-[48ch] mb-8" style={{ color: 'rgba(235,235,242,0.45)' }}>
+                <p className="text-base max-w-[48ch] mb-8" style={{ color: 'rgba(10,10,15,0.5)' }}>
                   Get a free audit revealing exactly how your brand appears in ChatGPT, Gemini, and Perplexity — plus a personalised roadmap to dominate your category.
                 </p>
                 <div className="flex flex-col gap-3">
                   {['Custom AI Search Visibility Report', 'Competitor Citation Analysis', 'Category Authority Gap Assessment', 'Personalised GEO Roadmap'].map((item) => (
                     <div key={item} className="flex items-center gap-2.5">
-                      <div className="flex items-center justify-center w-5 h-5 rounded-full shrink-0" style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.2)' }}>
-                        <CheckIcon className="w-3 h-3" style={{ color: '#60a5fa' }} />
+                      <div className="flex items-center justify-center w-5 h-5 rounded-full shrink-0" style={{ background: 'rgba(29,78,216,0.08)', border: '1px solid rgba(29,78,216,0.18)' }}>
+                        <CheckIcon className="w-3 h-3" style={{ color: '#1d4ed8' }} />
                       </div>
-                      <span className="text-sm" style={{ color: 'rgba(235,235,242,0.55)' }}>{item}</span>
+                      <span className="text-sm" style={{ color: 'rgba(10,10,15,0.55)' }}>{item}</span>
                     </div>
                   ))}
                 </div>
@@ -536,18 +493,18 @@ export default function HomePage() {
 
         {/* ── FINAL CTA ─────────────────────────────────────────────────────── */}
         <RevealSection>
-          <section className="py-32 px-6 sec-divider relative overflow-hidden" style={{ background: 'rgba(6,6,8,1)' }}>
+          <section className="py-32 px-6 sec-divider relative overflow-hidden">
             <div aria-hidden="true" className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 100%, rgba(37,211,102,0.05) 0%, transparent 70%)' }} />
             <div className="relative max-w-4xl mx-auto">
-              <div className="eyebrow w-fit mb-7" style={{ background: 'rgba(74,222,128,0.08)', border: '1px solid rgba(74,222,128,0.18)', color: '#4ade80' }}>
+              <div className="eyebrow w-fit mb-7" style={{ background: 'rgba(22,163,74,0.07)', border: '1px solid rgba(22,163,74,0.18)', color: '#16a34a' }}>
                 <WhatsAppIcon className="w-3 h-3" />
                 Direct access to our AI Search Strategist
               </div>
               <h2 className="display-heading mb-5" style={{ fontSize: 'clamp(2rem, 4vw, 3.8rem)' }}>
                 Your AI Search Position Is<br />
-                <span style={{ color: 'rgba(235,235,242,0.25)' }}>Being Claimed Right Now.</span>
+                <span style={{ color: 'rgba(10,10,15,0.22)' }}>Being Claimed Right Now.</span>
               </h2>
-              <p className="text-lg max-w-[52ch] mb-12" style={{ color: 'rgba(235,235,242,0.42)' }}>
+              <p className="text-lg max-w-[52ch] mb-12" style={{ color: 'rgba(10,10,15,0.45)' }}>
                 Every week without AI citation positioning compounds market share transferred to competitors who moved first. Speak directly with our strategist.
               </p>
               <div className="relative inline-flex items-center justify-center">
@@ -566,7 +523,7 @@ export default function HomePage() {
                   </span>
                 </a>
               </div>
-              <p className="mt-6 text-sm" style={{ color: 'rgba(235,235,242,0.2)' }}>
+              <p className="mt-6 text-sm" style={{ color: 'rgba(10,10,15,0.28)' }}>
                 Serving enterprise brands across the United States and India · Response within 2 hours
               </p>
             </div>

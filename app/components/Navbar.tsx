@@ -16,9 +16,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
 
-  // Close overlay on route change
   useEffect(() => { setOpen(false) }, [pathname])
-  // Lock body scroll when overlay is open
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -26,7 +24,7 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ── Fluid Island Pill Navbar ─────────────────────────────────── */}
+      {/* ── Fluid Island Pill — light glass ──────────────────────────── */}
       <nav
         className="navbar-pill fixed top-5 left-1/2 -translate-x-1/2 z-50 px-2 h-12 flex items-center gap-1"
         style={{ width: 'max-content', maxWidth: 'calc(100vw - 2rem)', minWidth: 280 }}
@@ -36,14 +34,14 @@ export default function Navbar() {
           <LogoMark />
           <span
             className="text-sm font-semibold leading-none hidden sm:block"
-            style={{ color: 'rgba(235,235,242,0.88)', letterSpacing: '-0.02em' }}
+            style={{ color: 'rgba(10,10,15,0.85)', letterSpacing: '-0.02em' }}
           >
             Answer Rank Labs
           </span>
         </Link>
 
         {/* Separator */}
-        <div className="hidden lg:block w-px h-5 mx-1" style={{ background: 'rgba(255,255,255,0.1)' }} />
+        <div className="hidden lg:block w-px h-5 mx-1" style={{ background: 'rgba(0,0,0,0.1)' }} />
 
         {/* Desktop nav links */}
         <div className="hidden lg:flex items-center gap-0.5">
@@ -53,8 +51,9 @@ export default function Navbar() {
               href={href}
               className="px-3.5 py-1.5 rounded-full text-[13px] font-medium transition-all duration-300 cursor-pointer"
               style={{
-                color: pathname === href ? 'rgba(235,235,242,0.95)' : 'rgba(235,235,242,0.45)',
-                background: pathname === href ? 'rgba(255,255,255,0.08)' : 'transparent',
+                color: pathname === href ? 'rgba(10,10,15,0.9)' : 'rgba(10,10,15,0.45)',
+                background: pathname === href ? 'rgba(0,0,0,0.06)' : 'transparent',
+                fontWeight: pathname === href ? 600 : 500,
               }}
             >
               {label}
@@ -63,14 +62,14 @@ export default function Navbar() {
         </div>
 
         {/* Separator */}
-        <div className="hidden lg:block w-px h-5 mx-1" style={{ background: 'rgba(255,255,255,0.1)' }} />
+        <div className="hidden lg:block w-px h-5 mx-1" style={{ background: 'rgba(0,0,0,0.1)' }} />
 
         {/* Desktop CTAs */}
         <div className="hidden sm:flex items-center gap-2 pr-1">
           <Link
             href="/contact"
             className="px-4 py-1.5 rounded-full text-[13px] font-semibold transition-all duration-300 cursor-pointer"
-            style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.2)', color: '#93c5fd' }}
+            style={{ background: 'rgba(29,78,216,0.08)', border: '1px solid rgba(29,78,216,0.18)', color: '#1d4ed8' }}
           >
             Free Audit
           </Link>
@@ -79,7 +78,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[13px] font-semibold transition-all duration-300 cursor-pointer"
-            style={{ background: 'rgba(37,211,102,0.1)', border: '1px solid rgba(37,211,102,0.2)', color: '#4ade80' }}
+            style={{ background: 'rgba(22,163,74,0.08)', border: '1px solid rgba(22,163,74,0.2)', color: '#16a34a' }}
           >
             <WhatsAppIcon className="w-3.5 h-3.5" />
             <span className="hidden md:inline">WhatsApp</span>
@@ -93,10 +92,9 @@ export default function Navbar() {
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full ml-auto shrink-0 cursor-pointer transition-all duration-300"
-          style={{ color: 'rgba(235,235,242,0.7)', background: open ? 'rgba(255,255,255,0.08)' : 'transparent' }}
+          style={{ color: 'rgba(10,10,15,0.65)', background: open ? 'rgba(0,0,0,0.06)' : 'transparent' }}
         >
           <span className="relative w-5 h-3.5 block">
-            {/* Line 1 */}
             <span
               className="absolute left-0 right-0 h-[1.5px] rounded-full origin-center transition-all duration-500"
               style={{
@@ -106,7 +104,6 @@ export default function Navbar() {
                 transitionTimingFunction: 'cubic-bezier(0.32,0.72,0,1)',
               }}
             />
-            {/* Line 2 */}
             <span
               className="absolute left-0 right-0 h-[1.5px] rounded-full origin-center transition-all duration-500"
               style={{
@@ -120,11 +117,11 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* ── Full-screen overlay menu (mobile) ────────────────────────── */}
+      {/* ── Full-screen light overlay (mobile) ───────────────────────── */}
       <div
         className="lg:hidden fixed inset-0 z-40 flex flex-col justify-between px-8 py-10 transition-all duration-500"
         style={{
-          background: 'rgba(6,6,8,0.94)',
+          background: 'rgba(255,255,255,0.96)',
           backdropFilter: 'blur(28px)',
           WebkitBackdropFilter: 'blur(28px)',
           opacity: open ? 1 : 0,
@@ -135,10 +132,10 @@ export default function Navbar() {
         {/* Top: logo */}
         <div className="flex items-center gap-2 pt-2">
           <LogoMark />
-          <span className="text-sm font-semibold" style={{ color: 'rgba(235,235,242,0.6)' }}>Answer Rank Labs</span>
+          <span className="text-sm font-semibold" style={{ color: 'rgba(10,10,15,0.5)' }}>Answer Rank Labs</span>
         </div>
 
-        {/* Middle: nav links — staggered slide-up reveal */}
+        {/* Middle: nav links — staggered reveal */}
         <nav className="flex flex-col gap-2">
           {NAV_LINKS.map(({ href, label }, i) => (
             <div
@@ -153,7 +150,10 @@ export default function Navbar() {
                 href={href}
                 onClick={() => setOpen(false)}
                 className="block text-4xl font-bold leading-none py-3 transition-colors duration-200 cursor-pointer"
-                style={{ color: pathname === href ? 'rgba(235,235,242,0.95)' : 'rgba(235,235,242,0.42)', letterSpacing: '-0.04em' }}
+                style={{
+                  color: pathname === href ? 'rgba(10,10,15,0.9)' : 'rgba(10,10,15,0.32)',
+                  letterSpacing: '-0.04em',
+                }}
               >
                 {label}
               </Link>
@@ -174,7 +174,7 @@ export default function Navbar() {
             href="/contact"
             onClick={() => setOpen(false)}
             className="w-full text-center py-4 rounded-2xl text-sm font-semibold cursor-pointer"
-            style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.2)', color: '#93c5fd' }}
+            style={{ background: 'rgba(29,78,216,0.08)', border: '1px solid rgba(29,78,216,0.18)', color: '#1d4ed8' }}
           >
             Get Free Audit
           </Link>
@@ -183,7 +183,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl text-sm font-semibold cursor-pointer"
-            style={{ background: 'rgba(37,211,102,0.1)', border: '1px solid rgba(37,211,102,0.2)', color: '#4ade80' }}
+            style={{ background: 'rgba(22,163,74,0.08)', border: '1px solid rgba(22,163,74,0.2)', color: '#16a34a' }}
           >
             <WhatsAppIcon className="w-4 h-4" />
             Message on WhatsApp

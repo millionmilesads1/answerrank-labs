@@ -32,12 +32,12 @@ export default function LeadCaptureForm({
       <div className="lead-form-card p-8 text-center">
         <div
           className="flex items-center justify-center w-12 h-12 rounded-2xl mx-auto mb-4"
-          style={{ background: 'rgba(74,222,128,0.1)', border: '1px solid rgba(74,222,128,0.2)' }}
+          style={{ background: 'rgba(22,163,74,0.08)', border: '1px solid rgba(22,163,74,0.18)' }}
         >
-          <CheckIcon className="w-6 h-6" style={{ color: '#4ade80' }} />
+          <CheckIcon className="w-6 h-6" style={{ color: '#16a34a' }} />
         </div>
-        <h3 className="text-lg font-bold mb-2" style={{ color: 'rgba(235,235,242,0.92)' }}>Request Received</h3>
-        <p className="text-sm mb-5" style={{ color: 'rgba(235,235,242,0.48)' }}>
+        <h3 className="text-lg font-bold mb-2" style={{ color: 'rgba(10,10,15,0.9)' }}>Request Received</h3>
+        <p className="text-sm mb-5" style={{ color: 'rgba(10,10,15,0.5)' }}>
           Connect with our AI Search Strategist on WhatsApp. Your personalised audit arrives within 24 hours.
         </p>
         <a
@@ -51,7 +51,7 @@ export default function LeadCaptureForm({
           Open WhatsApp &amp; Send
           <ArrowRightIcon className="w-4 h-4" />
         </a>
-        <p className="mt-4 text-xs" style={{ color: 'rgba(235,235,242,0.3)' }}>Response within 2 hours · No spam</p>
+        <p className="mt-4 text-xs" style={{ color: 'rgba(10,10,15,0.28)' }}>Response within 2 hours · No spam</p>
       </div>
     )
   }
@@ -62,18 +62,18 @@ export default function LeadCaptureForm({
         <div
           className="px-7 py-5"
           style={{
-            background: 'rgba(96,165,250,0.06)',
-            borderBottom: '1px solid rgba(96,165,250,0.12)',
+            background: 'rgba(29,78,216,0.04)',
+            borderBottom: '1px solid rgba(29,78,216,0.1)',
           }}
         >
           <div className="flex items-center gap-2 mb-2.5">
-            <SparkleIcon className="w-3.5 h-3.5" style={{ color: '#60a5fa' }} />
-            <span className="text-[10px] font-semibold tracking-widest uppercase" style={{ color: '#60a5fa' }}>
+            <SparkleIcon className="w-3.5 h-3.5" style={{ color: '#1d4ed8' }} />
+            <span className="text-[10px] font-semibold tracking-widest uppercase" style={{ color: '#1d4ed8' }}>
               Free AI Search Audit
             </span>
           </div>
-          <h3 className="text-lg font-bold leading-snug mb-1.5" style={{ color: 'rgba(235,235,242,0.9)' }}>{headline}</h3>
-          <p className="text-sm leading-relaxed" style={{ color: 'rgba(235,235,242,0.45)' }}>{subheadline}</p>
+          <h3 className="text-lg font-bold leading-snug mb-1.5" style={{ color: 'rgba(10,10,15,0.9)' }}>{headline}</h3>
+          <p className="text-sm leading-relaxed" style={{ color: 'rgba(10,10,15,0.5)' }}>{subheadline}</p>
         </div>
       )}
 
@@ -81,28 +81,28 @@ export default function LeadCaptureForm({
         <div className="flex flex-col gap-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="lead-name" className="text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'rgba(235,235,242,0.38)' }}>
-                Your Name <span style={{ color: '#60a5fa' }}>*</span>
+              <label htmlFor="lead-name" className="text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'rgba(10,10,15,0.4)' }}>
+                Your Name <span style={{ color: '#1d4ed8' }}>*</span>
               </label>
               <input id="lead-name" name="name" type="text" required placeholder="Jane Smith" className="form-input" />
             </div>
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="lead-company" className="text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'rgba(235,235,242,0.38)' }}>
-                Company <span style={{ color: '#60a5fa' }}>*</span>
+              <label htmlFor="lead-company" className="text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'rgba(10,10,15,0.4)' }}>
+                Company <span style={{ color: '#1d4ed8' }}>*</span>
               </label>
               <input id="lead-company" name="company" type="text" required placeholder="Acme Corp" className="form-input" />
             </div>
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label htmlFor="lead-email" className="text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'rgba(235,235,242,0.38)' }}>
-              Work Email <span style={{ color: '#60a5fa' }}>*</span>
+            <label htmlFor="lead-email" className="text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'rgba(10,10,15,0.4)' }}>
+              Work Email <span style={{ color: '#1d4ed8' }}>*</span>
             </label>
             <input id="lead-email" name="email" type="email" required placeholder="jane@company.com" className="form-input" />
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label htmlFor="lead-challenge" className="text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'rgba(235,235,242,0.38)' }}>
+            <label htmlFor="lead-challenge" className="text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'rgba(10,10,15,0.4)' }}>
               Your Biggest AI Search Challenge
             </label>
             <select id="lead-challenge" name="challenge" className="form-input form-select">
@@ -117,14 +117,14 @@ export default function LeadCaptureForm({
           {state.status === 'error' && state.error && (
             <p
               className="text-sm px-4 py-3 rounded-xl"
-              style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.18)', color: '#fca5a5' }}
+              style={{ background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.15)', color: '#dc2626' }}
               role="alert"
             >
               {state.error}
             </p>
           )}
 
-          {/* Button-in-Button CTA pattern */}
+          {/* Button-in-Button CTA */}
           <button
             type="submit"
             disabled={pending}
@@ -149,7 +149,7 @@ export default function LeadCaptureForm({
             )}
           </button>
 
-          <p className="text-center text-xs" style={{ color: 'rgba(235,235,242,0.28)' }}>
+          <p className="text-center text-xs" style={{ color: 'rgba(10,10,15,0.3)' }}>
             No spam · Response within 2 hours · US &amp; India
           </p>
         </div>
